@@ -130,6 +130,7 @@
             <h3>{{ $lang['Titles']['Uh3'] }}</h3>
         </div>
         <form action="{{ route('getClient') }}" method="POST">
+            @csrf
             <div class="card-body text-center">
                 <h4 class="card-title ">{{ $lang['Titles']['Uh4'] }} </h4>
 

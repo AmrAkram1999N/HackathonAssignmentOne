@@ -132,6 +132,7 @@
             <h3>{{ $lang['Titles']['h3'] }}</h3>
         </div>
         <form action="{{ route('getNumber') }}" method="POST">
+            @csrf
             <div class="card-body text-center">
                 <h4 class="card-title ">{{ $lang['Titles']['h4'] }}</h4>
 
