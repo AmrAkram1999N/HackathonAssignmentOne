@@ -2,21 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Card;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\lang;
 
 class ViewController extends Controller
 {
+    use lang;
+
+    protected $lang;
+
+    public function __construct()
+    {
+        $this->lang = $this->lang();
+    }
+
     //ClientPage
     public function cardView()
     {
-        return view('ProjectFiles.cardView', ['number' => 1]);
+        $lang = $this->lang();
+
+        return view('ProjectFiles.cardView', [
+            'number' => 1,
+            'lang' => $this->lang,
+        ]);
     }
 
-    //UserServicePage
+    //UserPage
     public function userViewCard()
     {
-        return view('ProjectFiles.userCard',['number'=> 1]);
+        return view('ProjectFiles.userCard', [
+            'number' => 1,
+            'lang' => $this->lang,
+        ]);
     }
 
     //Project System

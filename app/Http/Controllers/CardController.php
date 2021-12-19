@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\lang;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
+    use lang;
+
+    protected $lang;
+
+    public function __construct()
+    {
+        $this->lang = $this->lang();
+    }
     public function getNumber()
     {
         $user = Auth::guard('web')->user();
@@ -28,7 +37,7 @@ class CardController extends Controller
 
                 session()->put('time',$time);
 
-                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber]);
+                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber, 'lang' => $this->lang,]);
             } else {
                 $num = $cardModel->id + 1;
 
@@ -41,7 +50,7 @@ class CardController extends Controller
 
                 session()->put('time',$time);
 
-                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber]);
+                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber,'lang' => $this->lang,]);
             }
 
         } else {
@@ -60,7 +69,7 @@ class CardController extends Controller
 
                 session()->put('time',$time);
 
-                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber]);
+                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber, 'lang' => $this->lang,]);
             } else {
                 $num = $cardModel->id + 1;
 
@@ -74,7 +83,7 @@ class CardController extends Controller
 
                 session()->put('time',$time);
 
-                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber]);
+                return view('ProjectFiles.cardView', ['number' => $cardModel->clientnumber,'lang' => $this->lang,]);
             }
         }
 
@@ -83,6 +92,7 @@ class CardController extends Controller
     public function previousNumber($number)
     {
 
+
         $moreThan = Card::where('clientnumber', '=', $number - 1)->first();
 
         if($moreThan == null)
@@ -90,7 +100,7 @@ class CardController extends Controller
             return redirect()->route('cardView')->with('number',"There is nobody before you!!");
         }else
         {
-            return view('ProjectFiles.cardView',['number' => $moreThan->clientnumber]);
+            return view('ProjectFiles.cardView',['number' => $moreThan->clientnumber,'lang' => $this->lang,]);
         }
     }
 
@@ -103,7 +113,7 @@ class CardController extends Controller
             return redirect()->route('cardView')->with('number',"There is nobody after you!!");
         }else
         {
-            return view('ProjectFiles.cardView',['number' => $moreThan->clientnumber]);
+            return view('ProjectFiles.cardView',['number' => $moreThan->clientnumber,'lang' => $this->lang,]);
         }
     }
 
@@ -111,6 +121,7 @@ class CardController extends Controller
     {
         $user = Auth::guard('web')->user();
         $modelCard = $user->Cards->where('status', 'null')->first();
+
         if($modelCard == null)
         {
             return redirect()->route('userViewCard')->with('status',"There is no clients at this moment!! wait a little please ^_^");

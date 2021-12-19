@@ -1,6 +1,6 @@
 <!-- Click on Modal Button -->
 <a class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#modalForm4">
-    N1:Project Idea
+    {{ $lang }}
 </a>
 
 <!-- Modal -->
@@ -8,16 +8,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-                <h3 class="modal-title text-white" id="exampleModalLabel">The idea of the project</h3>
+                <h3 class="modal-title text-white" id="exampleModalLabel">{{ $headerThree }}</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
+
             <div class="modal-body">
-                <h5>The idea of building an organized queuing system:</h5>
+                <h5>{{ $headerFive }}</h5>
                 <hr style="height:3px;border:none;color:rgb(2, 2, 2);background-color:rgb(0, 0, 0);" />
 
                 <p>
-                    Establishing a software system to manage the organization of a service queue, whether it is like
-                    banking systems or any institution that provides services to the public.
+                    {{ $paragraph }}
                 </p>
             </div>
         </div>

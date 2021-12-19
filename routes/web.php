@@ -40,3 +40,7 @@ Route::post('/getClient',[CardController::class,'getClient'])->name('getClient')
 Route::get('/databaseSystem', [ViewController::class,'databaseSystem'])->name('databaseSystem');
 Route::get('/interfaceSystem', [ViewController::class,'interfaceSystem'])->name('interfaceSystem');
 Route::get('/controllerModelSystem', [ViewController::class,'controllerModelSystem'])->name('controllerModelSystem');
+
+
+//Localization Buttons
+Route::get('/lang/{lang}',[ViewController::class,'lang'])->name('lang');
