@@ -16,24 +16,33 @@ class ViewController extends Controller
     }
 
     //ClientPage
-    public function cardView()
+    public function cardView($lang = 'en')
     {
-        $lang = $this->lang();
+        $language = $this->lang($lang);
 
         return view('ProjectFiles.cardView', [
             'number' => 1,
-            'lang' => $this->lang,
+            'lang' => $language,
         ]);
     }
 
     //UserPage
-    public function userViewCard()
+    public function userViewCard($lang = 'en')
     {
+        $language = $this->lang($lang);
+
         return view('ProjectFiles.userCard', [
             'number' => 1,
-            'lang' => $this->lang,
+            'lang' => $language,
         ]);
     }
+
+    //Language Choice
+    // public function langChoice($lang)
+    // {
+    //     $language = $this->lang($lang);
+
+    // }
 
     //Project System
     public function databaseSystem()

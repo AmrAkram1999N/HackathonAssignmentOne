@@ -105,8 +105,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownXxl" data-bs-toggle="dropdown"
                             aria-expanded="false">{{ $lang['Navbar']['lang']['title'] }}</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownXxl">
-                            <li><a class="dropdown-item" href="{{ route('lang', 'ar') }}">{{ $lang['Navbar']['lang']['one'] }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('lang', 'en') }}">{{ $lang['Navbar']['lang']['two'] }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('langChoice', 'ar') }}">{{ $lang['Navbar']['lang']['one'] }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('langChoice', 'en') }}">{{ $lang['Navbar']['lang']['two'] }}</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -43,4 +43,4 @@ Route::get('/controllerModelSystem', [ViewController::class,'controllerModelSyst
 
 
 //Localization Buttons
-Route::get('/lang/{lang}',[ViewController::class,'lang'])->name('lang');
+Route::get('/cardView/{lang}',[ViewController::class,'cardView'])->name('langChoice');
