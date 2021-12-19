@@ -137,9 +137,6 @@
                 <p class="card-text fs-4">
                     {{ session()->pull('ClientNumber', 'default') }}
                 </p>
-
-
-                @csrf
                 <button class="btn btn-primary" type="submit">{{ $lang['Titles']['Ubutton'] }}</button>
 
 

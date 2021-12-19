@@ -140,8 +140,6 @@
                     {{ $number }}
                 </p>
 
-
-                @csrf
                 <button class="btn btn-primary" type="submit">{{ $lang['Titles']['button'] }}</button>
 
 
